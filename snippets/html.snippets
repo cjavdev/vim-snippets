@@ -349,16 +349,21 @@ snippet footer#
 	<footer id="${1}">
 		${0}
 	</footer>
+snippet aform
+	<form action="${1}" method="${2:post}" accept-charset="utf-8">
+	  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		${0}
+	</form>
 snippet form
-	<form action="${1}" method="${2:post}">
+	<form action="${1}" method="${2:post}" accept-charset="utf-8">
 		${0}
 	</form>
 snippet form.
-	<form class="${1}" action="${2}" method="${3:post}">
+	<form class="${1}" action="${2}" method="${3:post}" accept-charset="utf-8">
 		${0}
 	</form>
 snippet form#
-	<form id="${1}" action="${2}" method="${3:post}">
+	<form id="${1}" action="${2}" method="${3:post}" accept-charset="utf-8">
 		${0}
 	</form>
 snippet h1
