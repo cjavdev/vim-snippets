@@ -354,6 +354,15 @@ snippet aform
 	  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		${0}
 	</form>
+snippet formup
+	<form action="${1}" method="${2:post}">
+	  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	  <label for="username">Username</label><br>
+	  <input id="username" name="user[username]" type="text"><br>
+	  <label for="password">Password</label><br>
+	  <input id="password" name="user[password]" type="password"><br>
+	  <input type="submit" value="${3:Submit}"><br>
+	</form>
 snippet form
 	<form action="${1}" method="${2:post}" accept-charset="utf-8">
 		${0}
@@ -536,6 +545,10 @@ snippet label
 snippet label:i
 	<label for="${2:$1}">${1}</label>
 	<input type="${3:text/submit/hidden/button}" name="${4:$2}" id="${5:$2}" value="${6}" />
+snippet input:l
+	<label>${1}
+	  <input type="${2:text/textarea}" name="${3:$1}" value="<%= ${4} %>">
+	</label>
 snippet label:s
 	<label for="${2:$1}">${1}</label>
 	<select name="${3:$2}" id="${4:$2}">
@@ -857,6 +870,23 @@ snippet video
 snippet video.
 	<video class="${1}" src="${2}" height="${3}" width="${4}" preload="${5:none}" autoplay="${6:autoplay}">${7}</video>
 snippet wbr
-	<wbr>
-snippet viewport
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<wbr />
+# ERB
+snippet button_to
+	<%= button_to "${1}", ${2}, ${3} %>
+snippet flashe
+	<% if flash[:errors] %>
+	  <% flash[:errors].each do |error| %>
+		<%= error %>
+	  <% end %>
+	<% end %>
+snippet flashl
+	<% if logged_in? %>
+	  Welcome <%= current_user.${1:username} %>
+	  <%= button_to "${2:Sign Out}", session_url, :method => :delete %>
+	<% else %>
+	  <%= link_to "${3:Login}", new_session_url %>
+	  <%= link_to "${4:Sign Up}", new_user_url %>
+	<% end %>
+snippet ta
+	<%= ${1} %>
