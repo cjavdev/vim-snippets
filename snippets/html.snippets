@@ -350,9 +350,10 @@ snippet footer#
 		${0}
 	</footer>
 snippet aform
-	<form action="${1}" method="${2:post}" accept-charset="utf-8">
+	<form action="${1}" method="${2:post}">
 	  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-		${0}
+		${4}
+	  <input type="submit" value="${3:Submit}">
 	</form>
 snippet formup
 	<form action="${1}" method="${2:post}">
@@ -543,8 +544,9 @@ snippet kbd
 snippet label
 	<label for="${0:$1}">${1}</label>
 snippet label:i
-	<label for="${2:$1}">${1}</label>
-	<input type="${3:text/submit/hidden/button}" name="${4:$2}" id="${5:$2}" value="${6}" />
+	<label>${1}<br>
+	  <input type="${3:text/submit/hidden/button}" name="${4:$1}" id="${5:$1}" value="<%= ${6} %>">
+	</label>
 snippet input:l
 	<label>${1}
 	  <input type="${2:text/textarea}" name="${3:$1}" value="<%= ${4} %>">
