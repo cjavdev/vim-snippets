@@ -358,11 +358,13 @@ snippet aform
 snippet formup
 	<form action="${1}" method="${2:post}">
 	  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-	  <label for="username">Username</label><br>
-	  <input id="username" name="user[username]" type="text"><br>
-	  <label for="password">Password</label><br>
-	  <input id="password" name="user[password]" type="password"><br>
-	  <input type="submit" value="${3:Submit}"><br>
+	  <label>${4:Username}<br>
+		<input name="user[${5:username}]" type="text"><br>
+	  </label>
+	  <label>Password<br>
+	    <input name="user[password]" type="password"><br>
+	  </label>
+	  <input type="submit" value="${6:Submit}"><br>
 	</form>
 snippet form
 	<form action="${1}" method="${2:post}" accept-charset="utf-8">
