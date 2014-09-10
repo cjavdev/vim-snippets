@@ -359,7 +359,7 @@ snippet formup
 	<form action="${1}" method="${2:post}">
 	  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	  <label>${4:Username}<br>
-		<input name="user[${5:username}]" type="text"><br>
+	    <input name="user[${5:username}]" type="text"><br>
 	  </label>
 	  <label>Password<br>
 	    <input name="user[password]" type="password"><br>
@@ -444,8 +444,14 @@ snippet hgroup.
 snippet hr
 	<hr>
 snippet html
+	<!DOCTYPE html>
 	<html>
-	${0}
+		<head>
+			<title>${1:`substitute(vim_snippets#Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
+		</head>
+		<body>
+		  ${0}
+		</body>
 	</html>
 snippet xhtml
 	<html xmlns="http://www.w3.org/1999/xhtml">
@@ -892,5 +898,8 @@ snippet flashl
 	  <%= link_to "${3:Login}", new_session_url %>
 	  <%= link_to "${4:Sign Up}", new_user_url %>
 	<% end %>
+snippet jquery
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
 snippet ta
 	<%= ${1} %>
+
