@@ -726,7 +726,7 @@ snippet defupdate
 	def update
 		@${1:model_class_name} = ${2:ModelClassName}.find(params[:id])
 
-		if @$1.update_attributes($1_params)
+		if @$1.update($1_params)
 		  render json: @$1
 		else
 		  render json: @$1.errors.full_messages, status: :unprocessable_entity
