@@ -81,6 +81,12 @@ snippet :f
 	${1:method_name}: function (${2}) {
 		${0}
 	}${3:,}
+snippet :frender
+	render: function () {
+	  var content = this.template(${2});
+	  this.$el.html(content);
+	  return this;
+	}${3:,}
 # setTimeout function
 snippet timeout
 	setTimeout(function () {${0}}${2}, ${1:10});
@@ -125,7 +131,7 @@ snippet :m
 # JSON.stringify
 snippet jsons
 	JSON.stringify(${0:object});
-# self-defining function
+# self defining function 
 snippet sdf
 	var ${1:function_name} = function (${2:argument}) {
 		${3}
@@ -134,6 +140,16 @@ snippet sdf
 			${0}
 		};
 	};
+# random integer
+snippet randi
+	function randomInt(${1:min}, ${2:max}) {
+	  return Math.floor(Math.random() * (max - min)) + min;
+	}# random integer
+# random color
+snippet randc
+	function randomColor() {
+	  return 'rgb(' + randomInt(0, 255) + ',' + randomInt(0, 255) + ',' + randomInt(0, 255) + ')';
+	}
 # singleton
 snippet sing
 	function ${1:Singleton} (${2:argument}) {
@@ -202,3 +218,4 @@ snippet prop
 			configurable : ${0:boolean}
 		}
 	);
+

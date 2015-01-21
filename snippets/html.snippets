@@ -893,11 +893,18 @@ snippet flashe
 snippet flashl
 	<% if logged_in? %>
 	  Welcome <%= current_user.${1:username} %>
-	  <%= button_to "${2:Sign Out}", session_url, :method => :delete %>
+	  <%= button_to "${2:Sign Out}", session_url, method: :delete %>
 	<% else %>
-	  <%= link_to "${3:Login}", new_session_url %>
+	  <%= link_to "${3:Sign In}", new_session_url %>
 	  <%= link_to "${4:Sign Up}", new_user_url %>
 	<% end %>
+snippet lodash
+	<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+snippet underscore
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
+snippet bootstrap
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css"></link>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 snippet jquery
 	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
 snippet ta
