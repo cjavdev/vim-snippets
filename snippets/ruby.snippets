@@ -717,6 +717,8 @@ snippet defnew
 	def new
 		@${1:model_class_name} = ${2:ModelClassName}.new
 	end
+snippet preq
+	params.require(${1}).permit(${2})
 snippet defshow
 	def show
 		@${1:model_class_name} = ${2:ModelClassName}.find(params[:id])

@@ -76,6 +76,9 @@ snippet do
 	do {
 		${0}
 	} while (${1:/* condition */});
+# this.listenTo
+snippet lt
+	this.listenTo(this.${1}, '${2}', this.${3:render});
 # Object Method
 snippet :f
 	${1:method_name}: function (${2}) {
