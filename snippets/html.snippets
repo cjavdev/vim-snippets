@@ -414,6 +414,8 @@ snippet h6.
 	<h6 class="${1}">${0}</h6>
 snippet h6#
 	<h6 id="${1}">${0}</h6>
+snippet metaresp
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 snippet head
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -893,10 +895,10 @@ snippet flashe
 snippet flashl
 	<% if logged_in? %>
 	  Welcome <%= current_user.${1:username} %>
-	  <%= button_to "${2:Sign Out}", session_url, method: :delete %>
+	  <%= button_to "${2:Leave}", session_url, method: :delete %>
 	<% else %>
-	  <%= link_to "${3:Sign In}", new_session_url %>
-	  <%= link_to "${4:Sign Up}", new_user_url %>
+	  <%= link_to "${3:Log In}", new_session_url %>
+	  <%= link_to "${4:Register}", new_user_url %>
 	<% end %>
 snippet lodash
 	<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
@@ -907,6 +909,11 @@ snippet bootstrap
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 snippet jquery
 	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+snippet react
+	<script src="https://fb.me/react-0.12.0.min.js"></script>
+	<script src="https://fb.me/JSXTransformer-0.12.0.js"></script>
+snippet firebase
+	<script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
 snippet ta
 	<%= ${1} %>
 
