@@ -197,11 +197,14 @@ snippet a=
 snippet test
 	def test_${1:description}(${2:`indent('.') ? 'self' : ''`}):
 		${0}
+
 # test case
 snippet testcase
-	class ${1:ExampleCase}(unittest.TestCase):
-
-		def test_${2:description}(self):
+	class ${2:ExampleTest}(MyVRTestCase):
+		def setUp(self):
+			super(${2}, self).setUp()
+			self.create_property()
+		def test_${1:description}(self):
 			${0}
 # test given when then
 snippet tgwt
