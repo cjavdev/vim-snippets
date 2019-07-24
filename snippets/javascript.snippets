@@ -140,7 +140,7 @@ snippet :m
 # JSON.stringify
 snippet jsons
 	JSON.stringify(${0:object});
-# self defining function 
+# self defining function
 snippet sdf
 	var ${1:function_name} = function (${2:argument}) {
 		${3}
@@ -227,4 +227,8 @@ snippet prop
 			configurable : ${0:boolean}
 		}
 	);
-
+snippet stelem
+	// Create a Stripe client.
+	var stripe = Stripe('');
+	// Create an instance of Elements.
+	var elements = stripe.elements();
