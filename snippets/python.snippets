@@ -456,4 +456,25 @@ snippet numeric "methods for emulating a numeric type" b
 
 	def __coerce__(self, other):
 		${25:pass}
-
+snippet flaskapp
+	import stripe
+	import json
+	import os
+	from flask import Flask, render_template, jsonify, request, send_from_directory
+	from dotenv import load_dotenv, find_dotenv
+	load_dotenv(find_dotenv())
+	stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
+	static_dir = str(os.path.abspath(os.path.join(__file__, '.', 'public')))
+	app = Flask(__name__, static_folder=static_dir, static_url_path="", template_folder=static_dir)
+	${1}
+	# Start server
+	if __name__ == '__main__':
+		app.run(port=4242)
+snippet post
+	@app.route('${1:/}', methods=['POST'])
+	def ${2}():
+	  ${3}
+snippet get
+	@app.route('${1:/}')
+	def ${2}():
+	  ${3}

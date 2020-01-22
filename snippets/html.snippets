@@ -918,4 +918,32 @@ snippet firebase
 	<script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
 snippet ta
 	<%= ${1} %>
-
+snippet fetch
+	fetch('${1}', {
+	  method: 'POST',
+	  headers: {
+	    'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify(${2:data}),
+	})
+	.then((response) => response.json())
+	.then((data) => {
+	  ${3:console.log('Success:', data)};
+	})
+	.catch((error) => {
+	  console.error('Error:', error);
+	});
+snippet gid
+	var ${1:button} = document.getElementById('${2}');
+snippet click
+	${1:button}.addEventListener('click', function(e) {
+	  e.preventDefault();
+	  ${2}
+	});
+snippet stripejs
+	<script src="https://js.stripe.com/v3/"></script>
+snippet stripe
+	var stripe = Stripe('pk_test_T190Sn41t9a34rBuhqhJfKBI00pOT83WNw');
+snippet params
+	var params = new URLSearchParams(window.location.search);
+	var ${1:param} = params.get('${2}');
