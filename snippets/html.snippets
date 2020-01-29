@@ -918,7 +918,7 @@ snippet firebase
 	<script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
 snippet ta
 	<%= ${1} %>
-snippet fetch
+snippet fetchp
 	fetch('${1}', {
 	  method: 'POST',
 	  headers: {
@@ -926,6 +926,15 @@ snippet fetch
 	  },
 	  body: JSON.stringify(${2:data}),
 	})
+	.then((response) => response.json())
+	.then((data) => {
+	  ${3:console.log('Success:', data)};
+	})
+	.catch((error) => {
+	  console.error('Error:', error);
+	});
+snippet fetch
+	fetch('${1}')
 	.then((response) => response.json())
 	.then((data) => {
 	  ${3:console.log('Success:', data)};
@@ -947,3 +956,49 @@ snippet stripe
 snippet params
 	var params = new URLSearchParams(window.location.search);
 	var ${1:param} = params.get('${2}');
+snippet cardElement
+	var elements = stripe.elements();
+	var card = elements.create('card');
+	card.mount('${1}');
+snippet democss
+	<link href="https://stripe-samples.github.io/developer-office-hours/demo.css" rel="stylesheet" type="text/css">
+snippet checkout
+	<div id="main">
+	  <div id="checkout">
+	    <div id="payment-form">
+	      <h1>${1:Awesome Photos}</h1>
+	      <button id="${2:buy}-button">${3:Buy}</button>
+	    </div>
+	  </div>
+	</div>
+snippet randomphoto
+	<img src="https://picsum.photos/280/320?random=4" width="140" height="160" />
+snippet field
+	<label>
+	  <span>${1:Amount}</span>
+	  <input type="${2:text}" class="field" id="${3}-input" value="${4}">
+	</label>
+snippet selectfield
+	<label>
+	  <span>${1:Options}</span>
+	  <select id="${2}" class="field">
+	    <option value="${3}">${4}</option>
+	  </select>
+	</label>
+snippet eur
+	var formatter = new Intl.NumberFormat('en-US', {
+	  style: 'currency',
+	  currency: 'EUR',
+	  minimumFractionDigits: 2
+	})
+snippet usd
+	var formatter = new Intl.NumberFormat('en-US', {
+	  style: 'currency',
+	  currency: 'USD',
+	  minimumFractionDigits: 2
+	})
+snippet submit
+	${1:form}.addEventListener('submit', function(e) {
+	  e.preventDefault();
+	  ${2}
+	});
